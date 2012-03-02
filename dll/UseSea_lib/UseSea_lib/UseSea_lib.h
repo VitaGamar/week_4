@@ -6,13 +6,13 @@ using namespace std;
 const int N=12;
 struct Field
 	{
-		char FirstField[N][N];							// поле зі своїми кораблями
-		char SecondField[N][N];							// результати ходів проти суперника
-		int FlotLife;								   //кількість палуб на кораблі
-		bool win;									// ознака перемоги
+		char FirstField[N][N];							// РїРѕР»Рµ Р·С– СЃРІРѕС—РјРё РєРѕСЂР°Р±Р»СЏРјРё
+		char SecondField[N][N];							// СЂРµР·СѓР»СЊС‚Р°С‚Рё С…РѕРґС–РІ РїСЂРѕС‚Рё СЃСѓРїРµСЂРЅРёРєР°
+		int FlotLife;								   //РєС–Р»СЊРєС–СЃС‚СЊ РїР°Р»СѓР± РЅР° РєРѕСЂР°Р±Р»С–
+		bool win;									// РѕР·РЅР°РєР° РїРµСЂРµРјРѕРіРё
 	};
-typedef void (*PrintFields)(Field& );														//надрукувати поля
-typedef void (*setShips)(Field& , Field&);															// поставити корабель
-typedef void (*RunGamePlayer)(Field& , Field&);												//процес гри
+typedef void (*PrintFields)(Field& );														//РЅР°РґСЂСѓРєСѓРІР°С‚Рё РїРѕР»СЏ
+typedef void (*setShips)(Field& , Field&);															// РїРѕСЃС‚Р°РІРёС‚Рё РєРѕСЂР°Р±РµР»СЊ
+typedef void (*RunGamePlayer)(Field& , Field&);												//РїСЂРѕС†РµСЃ РіСЂРё
 typedef void (*RunGameComp)(Field& , Field&);
 #endif
