@@ -1,6 +1,6 @@
 // Coldest_month26.cpp : Defines the entry point for the console application.
-//26.	Задана дійсна матриця Т, елементи якої означають середньомісячну температуру на острові x в місяці у.
-//Скласти процедуру, що визначає який місяць і на якому острові серед перелічених островів є найхолоднішим.
+//26.	Р—Р°РґР°РЅР° РґС–Р№СЃРЅР° РјР°С‚СЂРёС†СЏ Рў, РµР»РµРјРµРЅС‚Рё СЏРєРѕС— РѕР·РЅР°С‡Р°СЋС‚СЊ СЃРµСЂРµРґРЅСЊРѕРјС–СЃСЏС‡РЅСѓ С‚РµРјРїРµСЂР°С‚СѓСЂСѓ РЅР° РѕСЃС‚СЂРѕРІС– x РІ РјС–СЃСЏС†С– Сѓ.
+//РЎРєР»Р°СЃС‚Рё РїСЂРѕС†РµРґСѓСЂСѓ, С‰Рѕ РІРёР·РЅР°С‡Р°С” СЏРєРёР№ РјС–СЃСЏС†СЊ С– РЅР° СЏРєРѕРјСѓ РѕСЃС‚СЂРѕРІС– СЃРµСЂРµРґ РїРµСЂРµР»С–С‡РµРЅРёС… РѕСЃС‚СЂРѕРІС–РІ С” РЅР°Р№С…РѕР»РѕРґРЅС–С€РёРј.
 
 #include "stdafx.h"
 #include<iostream>
@@ -10,19 +10,19 @@ using namespace std;
 const ui nmon=12;		
 const ui nisl=6;
 const ui MAX=20;
-char month[nmon][MAX]={"January", "February" , "March" , "April" , "May", "June", "July", "August", "September", "October", "November", "December"};// перелік всіх місяців
-char island[nisl][MAX]={"Mozambique ", "Kangaroo   ", "BoraBora   ", "Cuba       ", "Kalimantan ", "Madagascar "};			// множина островів
+char month[nmon][MAX]={"January", "February" , "March" , "April" , "May", "June", "July", "August", "September", "October", "November", "December"};// РїРµСЂРµР»С–Рє РІСЃС–С… РјС–СЃСЏС†С–РІ
+char island[nisl][MAX]={"Mozambique ", "Kangaroo   ", "BoraBora   ", "Cuba       ", "Kalimantan ", "Madagascar "};			// РјРЅРѕР¶РёРЅР° РѕСЃС‚СЂРѕРІС–РІ
 class Taverage{		
-	double **T;						// матриця середньомісячних температур
+	double **T;						// РјР°С‚СЂРёС†СЏ СЃРµСЂРµРґРЅСЊРѕРјС–СЃСЏС‡РЅРёС… С‚РµРјРїРµСЂР°С‚СѓСЂ
 public:
-	Taverage() ;					// конструктор без параметрів
-	~Taverage();					// в деструкторі звільняємо ДП
-	void Create();					//розміщення в ДП
+	Taverage() ;					// РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ Р±РµР· РїР°СЂР°РјРµС‚СЂС–РІ
+	~Taverage();					// РІ РґРµСЃС‚СЂСѓРєС‚РѕСЂС– Р·РІС–Р»СЊРЅСЏС”РјРѕ Р”Рџ
+	void Create();					//СЂРѕР·РјС–С‰РµРЅРЅСЏ РІ Р”Рџ
 	void Clear();					
-	Taverage(const Taverage&);				// конструктор копіювання
-	void Setel(ui i, ui j, double ch);	//запис елементів у матрицю
-	void minim(ui&, ui&);				// знаходження мінімального
-	void showel() const;			// вивід масиву
+	Taverage(const Taverage&);				// РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РєРѕРїС–СЋРІР°РЅРЅСЏ
+	void Setel(ui i, ui j, double ch);	//Р·Р°РїРёСЃ РµР»РµРјРµРЅС‚С–РІ Сѓ РјР°С‚СЂРёС†СЋ
+	void minim(ui&, ui&);				// Р·РЅР°С…РѕРґР¶РµРЅРЅСЏ РјС–РЅС–РјР°Р»СЊРЅРѕРіРѕ
+	void showel() const;			// РІРёРІС–Рґ РјР°СЃРёРІСѓ
 };
 
 ////////////////////////////////////////////////////////////////////////////
@@ -71,7 +71,7 @@ Taverage::Taverage(const Taverage& a)
 	Create();
 	for( ui i=0; i<nisl; i++ )      
 		 for( ui j=0; j<nmon; j++ ) 
-			 T[i][j]=a.T[i][j];  // копіює значення елементів
+			 T[i][j]=a.T[i][j];  // РєРѕРїС–СЋС” Р·РЅР°С‡РµРЅРЅСЏ РµР»РµРјРµРЅС‚С–РІ
 }
 ////////////////////////////////////////////////////////////////////
 void Taverage::Clear()
@@ -116,8 +116,8 @@ void Taverage::minim(ui& mon, ui& is)
 			if(T[i][j]<min)
 			{
 				min=T[i][j];
-				nm=j;			//запам;ятовуємо номер стовпця 
-				ni=i;			//та номер рядка
+				nm=j;			//Р·Р°РїР°Рј;СЏС‚РѕРІСѓС”РјРѕ РЅРѕРјРµСЂ СЃС‚РѕРІРїС†СЏ 
+				ni=i;			//С‚Р° РЅРѕРјРµСЂ СЂСЏРґРєР°
 			}
 	mon=nm;			
 	is=ni;
