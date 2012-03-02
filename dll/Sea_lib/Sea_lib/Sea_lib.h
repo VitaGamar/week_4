@@ -7,26 +7,26 @@ using namespace std;
 const int N=12;
  struct Field
 	{
-		char FirstField[N][N];							// поле зі своїми кораблями
-		char SecondField[N][N];							// результати ходів проти суперника
-		int FlotLife;								   //кількість палуб на кораблі
-		bool win;									// ознака перемоги
+		char FirstField[N][N];							// РїРѕР»Рµ Р·С– СЃРІРѕС—РјРё РєРѕСЂР°Р±Р»СЏРјРё
+		char SecondField[N][N];							// СЂРµР·СѓР»СЊС‚Р°С‚Рё С…РѕРґС–РІ РїСЂРѕС‚Рё СЃСѓРїРµСЂРЅРёРєР°
+		int FlotLife;								   //РєС–Р»СЊРєС–СЃС‚СЊ РїР°Р»СѓР± РЅР° РєРѕСЂР°Р±Р»С–
+		bool win;									// РѕР·РЅР°РєР° РїРµСЂРµРјРѕРіРё
 	};
 
 extern "C"
 {
-DLLexport void PrintFields(Field& );														//надрукувати поля
-DLLexport void setShips(Field& , Field&);															// поставити корабель
-DLLexport void RunGamePlayer(Field& , Field&);												//процес гри
+DLLexport void PrintFields(Field& );														//РЅР°РґСЂСѓРєСѓРІР°С‚Рё РїРѕР»СЏ
+DLLexport void setShips(Field& , Field&);															// РїРѕСЃС‚Р°РІРёС‚Рё РєРѕСЂР°Р±РµР»СЊ
+DLLexport void RunGamePlayer(Field& , Field&);												//РїСЂРѕС†РµСЃ РіСЂРё
 DLLexport void RunGameComp(Field& , Field&);
 }
 
- bool ShipFieldTest(const int&, const int&, const int&, const int&, char [N][N] );  //перевірити чи можливо ставити корабель
- void setFlotShip(int, char [N][N]);												//поставити корабель (int-кількість палуб), хід гравця
- void setFlotShipComp(int, char [N][N]);											//поставити корабель (int-кількість палуб),, хід ком;ютера
- void getAtackCoordinates(int& x, int& y);										//отримати координаты для атаки, хід гравця(ввід з клавіатури)
- void getAtackCompCoordinates(int& x, int& y, char [N][N]);							//отримати координаты для атаки, хід компЮтера
- bool ShipTest(const int&, const int&, char [N][N]);								//перевірити чи існує корабель
- void getDeletedShipCoordinates(const int&, const int&, int&, int&, int&, int&, char [N][N]);//отримати координаты знищеного корабля
- void DeleteShip(const int&, const int&, const int&, const int&, char [N][N]);			//та позначити його на полі
+ bool ShipFieldTest(const int&, const int&, const int&, const int&, char [N][N] );  //РїРµСЂРµРІС–СЂРёС‚Рё С‡Рё РјРѕР¶Р»РёРІРѕ СЃС‚Р°РІРёС‚Рё РєРѕСЂР°Р±РµР»СЊ
+ void setFlotShip(int, char [N][N]);												//РїРѕСЃС‚Р°РІРёС‚Рё РєРѕСЂР°Р±РµР»СЊ (int-РєС–Р»СЊРєС–СЃС‚СЊ РїР°Р»СѓР±), С…С–Рґ РіСЂР°РІС†СЏ
+ void setFlotShipComp(int, char [N][N]);											//РїРѕСЃС‚Р°РІРёС‚Рё РєРѕСЂР°Р±РµР»СЊ (int-РєС–Р»СЊРєС–СЃС‚СЊ РїР°Р»СѓР±),, С…С–Рґ РєРѕРј;СЋС‚РµСЂР°
+ void getAtackCoordinates(int& x, int& y);										//РѕС‚СЂРёРјР°С‚Рё РєРѕРѕСЂРґРёРЅР°С‚С‹ РґР»СЏ Р°С‚Р°РєРё, С…С–Рґ РіСЂР°РІС†СЏ(РІРІС–Рґ Р· РєР»Р°РІС–Р°С‚СѓСЂРё)
+ void getAtackCompCoordinates(int& x, int& y, char [N][N]);							//РѕС‚СЂРёРјР°С‚Рё РєРѕРѕСЂРґРёРЅР°С‚С‹ РґР»СЏ Р°С‚Р°РєРё, С…С–Рґ РєРѕРјРїР®С‚РµСЂР°
+ bool ShipTest(const int&, const int&, char [N][N]);								//РїРµСЂРµРІС–СЂРёС‚Рё С‡Рё С–СЃРЅСѓС” РєРѕСЂР°Р±РµР»СЊ
+ void getDeletedShipCoordinates(const int&, const int&, int&, int&, int&, int&, char [N][N]);//РѕС‚СЂРёРјР°С‚Рё РєРѕРѕСЂРґРёРЅР°С‚С‹ Р·РЅРёС‰РµРЅРѕРіРѕ РєРѕСЂР°Р±Р»СЏ
+ void DeleteShip(const int&, const int&, const int&, const int&, char [N][N]);			//С‚Р° РїРѕР·РЅР°С‡РёС‚Рё Р№РѕРіРѕ РЅР° РїРѕР»С–
 #endif
